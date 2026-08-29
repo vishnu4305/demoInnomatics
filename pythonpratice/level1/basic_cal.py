@@ -1,0 +1,10 @@
+x = int(input("Enter first digit :"))
+y = int(input("Enter first digit :"))
+
+print("Addition :",x+y)
+print("Sub : ",x-y)
+print("Multi :",x*y)
+print("Div :",x/y)
+print("Floor div :", x//y)
+print("REmider :",x%y)
+print("Power :",x**y)
