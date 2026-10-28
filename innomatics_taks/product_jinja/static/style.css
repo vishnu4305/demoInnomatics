@@ -45,23 +45,6 @@ nav {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex-wrap: wrap;
-}
-
-nav .nav-link {
-    color: #c5e3e1;
-    text-decoration: none;
-    margin: 0;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-nav .nav-link:hover {
-    background: #398ea1;
-    color: var(--accent);
 }
 
 main {
@@ -930,11 +913,6 @@ a {
     font-size: 14px;
     font-weight: 600;
     transition: background 0.2s ease, color 0.2s ease;
-}
-
-.main-nav .nav-link:hover {
-    background: #173b43;
-    color: var(--accent);
 }
 
 .cart-count {
