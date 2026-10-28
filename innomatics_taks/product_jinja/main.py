@@ -17,15 +17,9 @@ app = FastAPI(title="ShapDrop")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
-
-# Basic cart ID for learning
 def get_cart_id():
     return "guest"
 
-
-# ----------------------------------
-# COUNT CART PRODUCTS
-# ----------------------------------
 
 def get_cart_count(db: Session):
     items = (
@@ -35,10 +29,6 @@ def get_cart_count(db: Session):
     )
     return sum(item.quantity for item in items)
 
-
-# ----------------------------------
-# GET CART DATA AND CALCULATE TOTAL
-# ----------------------------------
 
 def get_cart_data(db: Session):
     cart_items = (
@@ -82,11 +72,6 @@ def get_cart_data(db: Session):
     }
 
 
-# ----------------------------------
-# HOME PAGE
-# URL: /
-# ----------------------------------
-
 @app.get("/", response_class=HTMLResponse)
 def home_page(
     request: Request,
@@ -114,11 +99,6 @@ def home_page(
         },
     )
 
-
-# ----------------------------------
-# PRODUCT LISTING, SEARCH AND FILTER
-# URL: /products
-# ----------------------------------
 
 @app.get("/products", response_class=HTMLResponse)
 def list_products(
@@ -166,11 +146,6 @@ def list_products(
     )
 
 
-# ----------------------------------
-# PRODUCT DETAILS
-# URL: /product/{product_id}
-# ----------------------------------
-
 @app.get("/product/{product_id}", response_class=HTMLResponse)
 def product_detail(
     request: Request,
@@ -198,11 +173,6 @@ def product_detail(
         },
     )
 
-
-# ----------------------------------
-# ADD PRODUCT TO CART
-# URL: POST /cart/add/{product_id}
-# ----------------------------------
 
 @app.post("/cart/add/{product_id}")
 def add_to_cart(
@@ -266,10 +236,6 @@ def add_to_cart(
     return RedirectResponse("/cart", status_code=303)
 
 
-# ----------------------------------
-# VIEW SHOPPING CART
-# URL: /cart
-# ----------------------------------
 
 @app.get("/cart", response_class=HTMLResponse)
 def view_cart(
@@ -287,11 +253,6 @@ def view_cart(
         },
     )
 
-
-# ----------------------------------
-# UPDATE CART QUANTITY
-# URL: POST /cart/update/{product_id}
-# ----------------------------------
 
 @app.post("/cart/update/{product_id}")
 def update_cart(
@@ -344,11 +305,6 @@ def update_cart(
     return RedirectResponse("/cart", status_code=303)
 
 
-# ----------------------------------
-# REMOVE PRODUCT FROM CART
-# URL: POST /cart/remove/{product_id}
-# ----------------------------------
-
 @app.post("/cart/remove/{product_id}")
 def remove_from_cart(
     product_id: int,
@@ -370,11 +326,6 @@ def remove_from_cart(
     return RedirectResponse("/cart", status_code=303)
 
 
-# ----------------------------------
-# CLEAR CART
-# URL: POST /cart/clear
-# ----------------------------------
-
 @app.post("/cart/clear")
 def clear_cart(db: Session = Depends(get_db)):
     (
@@ -387,11 +338,6 @@ def clear_cart(db: Session = Depends(get_db)):
 
     return RedirectResponse("/cart", status_code=303)
 
-
-# ----------------------------------
-# HEALTH CHECK
-# URL: /health
-# ----------------------------------
 
 @app.get("/health")
 def health_check():

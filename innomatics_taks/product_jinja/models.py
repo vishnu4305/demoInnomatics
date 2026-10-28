@@ -24,7 +24,6 @@ class Product(Base):
     stock = Column(Integer, default=0)
     image_url = Column(String(255))
 
-    # Relationship with cart items
     cart_items = relationship(
         "CartItem",
         back_populates="product",
