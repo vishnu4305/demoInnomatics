@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+{% block title %}ShapDrop | Python Tech Store{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-topbar">
+        <span class="hero-brand">SHAPDROP / PYTHON STORE</span>
+        <span class="hero-status">
+            <span class="status-dot"></span>
+            YOUR NEXT LEVEL STARTS HERE
+        </span>
+    </div>
+    <div class="hero-content">
+        <p class="hero-tag">LEARN. BUILD. INNOVATE.</p>
+        <h1>
+            MASTER
+            <span>THE POWER OF PYTHON</span>
+        </h1>
+        <p class="hero-description">
+            Discover Python books, development resources, AI tools,
+            automation guides, and projects to turn your ideas into reality.
+        </p>
+        <div class="hero-buttons">
+            <a href="/products" class="hero-btn primary-btn">Explore Products <span>↗</span></a>
+            <a href="#categories" class="hero-btn secondary-btn">
+                Explore Python Topics
+            </a>
+        </div>
+        <div class="hero-bottom">
+            <span>01 — LEARN PYTHON</span>
+            <span>02 — BUILD PROJECTS</span>
+            <span>03 — CREATE THE FUTURE</span>
+        </div>
+    </div>
+</section>
+
+<section class="home-section categories-section" id="categories">
+    <div class="categories-heading">
+        <div>
+            <p class="section-eyebrow">YOUR PYTHON JOURNEY</p>
+            <h2>EXPLORE <span>PYTHON UNIVERSE</span></h2>
+            <p class="section-subtitle">
+                From Python fundamentals to AI, automation, and backend development.
+            </p>
+        </div>
+        <a href="/products" class="categories-view-all">
+            VIEW ALL PRODUCTS ↗
+        </a>
+    </div>
+    <div class="category-grid">
+        <!-- Category 1 -->
+        <a href="/products?category=Python%20Basics" class="category-card">
+            <div class="category-top">
+                <span class="category-number">01</span>
+            </div>
+            <div class="category-visual code-visual">
+                <span>Py()</span>
+            </div>
+            <div class="category-info">
+                <p>START HERE</p>
+                <h3>Python Fundamentals</h3>
+                <span class="category-arrow">Explore resources ↗</span>
+            </div>
+        </a>
+        <!-- Category 2 -->
+        <a href="/products?category=Python%20Development" class="category-card">
+            <div class="category-top">
+                <span class="category-number">02</span>
+            </div>
+            <div class="category-visual web-visual">
+                <span>DEV.py</span>
+                <div class="web-line"></div>
+                <div class="web-line short"></div>
+            </div>
+            <div class="category-info">
+                <p>BUILD APPLICATIONS</p>
+                <h3>Python Development</h3>
+                <span class="category-arrow">Explore resources ↗</span>
+            </div>
+        </a>
+        <!-- Category 3 -->
+        <a href="/products?category=Data%20Science" class="category-card">
+            <div class="category-top">
+                <span class="category-number">03</span>
+            </div>
+            <div class="category-visual ai-visual">
+                <span>DATA<span class="visual-dot">.</span></span>
+            </div>
+            <div class="category-info">
+                <p>WORK WITH DATA</p>
+                <h3>Data Science</h3>
+                <span class="category-arrow">Explore resources ↗</span>
+            </div>
+        </a>
+        <!-- Category 4 -->
+        <a href="/products?category=AI%2FML" class="category-card">
+            <div class="category-top">
+                <span class="category-number">04</span>
+            </div>
+            <div class="category-visual ai-visual">
+                <span>AI<span class="visual-dot">.</span></span>
+            </div>
+            <div class="category-info">
+                <p>BUILD INTELLIGENCE</p>
+                <h3>AI &amp; Machine Learning</h3>
+                <span class="category-arrow">Explore resources ↗</span>
+            </div>
+        </a>
+        <!-- Category 5 -->
+        <a href="/products?category=Automation" class="category-card">
+            <div class="category-top">
+                <span class="category-number">05</span>
+            </div>
+            <div class="category-visual code-visual">
+                <span>RUN()</span>
+            </div>
+            <div class="category-info">
+                <p>WORK SMARTER</p>
+                <h3>Python Automation</h3>
+                <span class="category-arrow">Explore resources ↗</span>
+            </div>
+        </a>
+        <!-- Category 6 -->
+        <a href="/products?category=Backend%20Development" class="category-card">
+            <div class="category-top">
+                <span class="category-number">06</span>
+            </div>
+            <div class="category-visual web-visual">
+                <span>API.py</span>
+                <div class="web-line"></div>
+                <div class="web-line short"></div>
+            </div>
+            <div class="category-info">
+                <p>POWER THE BACKEND</p>
+                <h3>FastAPI &amp; Backend</h3>
+                <span class="category-arrow">Explore resources ↗</span>
+            </div>
+        </a>
+        <!-- Category 7 -->
+        <a href="/products?category=Django" class="category-card">
+            <div class="category-top">
+                <span class="category-number">07</span>
+            </div>
+            <div class="category-visual code-visual">
+                <span>DJ</span>
+            </div>
+            <div class="category-info">
+                <p>WEB FRAMEWORKS</p>
+                <h3>Django Development</h3>
+                <span class="category-arrow">Explore resources ↗</span>
+            </div>
+        </a>
+        <!-- Category 8 -->
+        <a href="/products?category=Projects" class="category-card">
+            <div class="category-top">
+                <span class="category-number">08</span>
+            </div>
+            <div class="category-visual cloud-visual">
+                <span>{ }</span>
+            </div>
+            <div class="category-info">
+                <p>LEARN BY BUILDING</p>
+                <h3>Python Projects</h3>
+                <span class="category-arrow">Explore resources ↗</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- Why Choose ShapDrop -->
+<section class="home-section benefits-section">
+    <p class="section-eyebrow">WHY SHAPDROP</p>
+    <h2>BUILT FOR YOUR NEXT BREAKTHROUGH</h2>
+    <div class="benefits-grid">
+        <div class="benefit">
+            <h3>Python Learning Resources</h3>
+            <p>
+                Explore resources to learn Python from fundamentals
+                to advanced development.
+            </p>
+        </div>
+        <div class="benefit">
+            <h3>Build Real Projects</h3>
+            <p>
+                Find practical guides, development tools, and project
+                resources to improve your skills.
+            </p>
+        </div>
+        <div class="benefit">
+            <h3>Easy Shopping</h3>
+            <p>
+                Browse Python-related products and manage your
+                shopping cart in one place.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,98 @@
+
+{% extends "base.html" %}
+{% block title %}Shopping Cart | ShapDrop{% endblock %}
+{% block content %}
+<h1>Your Shopping Cart</h1>
+{% if items %}
+<div class="cart-layout">
+    <div class="cart-items">
+        {% for item in items %}
+        <div class="cart-item">
+            {% if item.product.image_url %}
+            <img
+                src="{{ item.product.image_url }}"
+                alt="{{ item.product.name }}"
+            >
+            {% endif %}
+            <div class="cart-item-info">
+                <h3>{{ item.product.name }}</h3>
+                <p class="category">
+                    {{ item.product.category or "Developer Resources" }}
+                </p>
+                <p>
+                    Price:
+                    ₹{{ "{:,.2f}".format(item.product.price) }}
+                </p>
+                <p>
+                    Quantity: {{ item.quantity }}
+                </p>
+                <p class="price">
+                    Subtotal:
+                    ₹{{ "{:,.2f}".format(item.line_total) }}
+                </p>
+                <div class="cart-actions">
+                    <form
+                        method="post"
+                        action="/cart/update/{{ item.product.id }}"
+                        class="quantity-form"
+                    >
+                        <label for="quantity-{{ item.product.id }}">
+                            Update quantity
+                        </label>
+
+                        <input
+                            type="number"
+                            id="quantity-{{ item.product.id }}"
+                            name="quantity"
+                            value="{{ item.quantity }}"
+                            min="1"
+                            max="{{ item.product.stock }}"
+                            required
+                        >
+                        <button type="submit">Update</button>
+                    </form>
+                    <form
+                        method="post"
+                        action="/cart/remove/{{ item.product.id }}"
+                    >
+                        <button type="submit" class="remove-btn">
+                            Remove
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="cart-summary">
+        <h2>Order Summary</h2>
+        <p>
+            Total items: {{ count }}
+        </p>
+        <h3>
+            Total: ₹{{ "{:,.2f}".format(subtotal) }}
+        </h3>
+        <p class="category">
+            Shipping and taxes, if applicable, are not included.
+        </p>
+        <button type="button" disabled>
+            Checkout — Coming Soon
+        </button>
+        <form method="post" action="/cart/clear">
+            <button type="submit" class="clear-btn">
+                Clear Cart
+            </button>
+        </form>
+        <a href="/" class="back">
+            Continue Shopping
+        </a>
+    </div>
+</div>
+{% else %}
+<div class="empty">
+    <h2>Your cart is empty!</h2>
+    <p>Explore Python books, AI tools, and developer resources.</p>
+    <a href="/" class="btn">Explore Products</a>
+</div>
+{% endif %}
+{% endblock %}

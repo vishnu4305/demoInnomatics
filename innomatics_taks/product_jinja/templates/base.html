@@ -3,12 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Product Store{% endblock %}</title>
+    <title>{% block title %}ShapDrop | Python Tech Store{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
 </head>
-<body>
-    <header><a href="/" class="logo">Product Store</a></header>
-    <main>{% block content %}{% endblock %}</main>
-    <footer> Jinja2 </footer>
+<body id="top">
+    <header class="site-header">
+        <a href="/" class="logo">
+            <span class="logo-icon">&lt;/&gt;</span>
+            SHAP<span class="logo-highlight">DROP</span>
+        </a>
+        <nav class="main-nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/products" class="nav-link">Products</a>
+            <a href="/#categories" class="nav-link">Categories</a>
+            <a href="/cart" class="nav-link cart-link">
+                Cart
+                <span class="cart-count">{{ cart_count | default(0) }}</span>
+            </a>
+        </nav>
+        <a href="/signup" class="signup-btn">
+            Sign Up <span>↗</span>
+        </a>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="basic-footer">
+        <p class="footer-quote">
+            "First, solve the problem. Then, write the code."
+        </p>
+        <p class="footer-copyright">
+            &copy; 2026 <span>ShapDrop</span>. All rights reserved.
+        </p>
+    </footer>
 </body>
 </html>
